@@ -12,7 +12,7 @@ html, body {
 
 /* Hero Section */
 .hero {
-  min-height: 100vh; /* ensures hero fills the browser */
+  min-height: 10vh; /* ensures hero fills the browser */
   display: flex;
   flex-direction: column;
   justify-content: center;
