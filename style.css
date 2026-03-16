@@ -15,7 +15,7 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 background:linear-gradient(270deg,#6366f1,#06b6d4,#9333ea);
-background-size:600% 600%;
+background-size:300% 300%;
 animation:gradient 10s ease infinite;
 position:relative;
 overflow:hidden;
