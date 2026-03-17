@@ -1,69 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
-<link rel="stylesheet" href="style.css">
+    <title>Hiyasa Abaya Designs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0d0d0d;
+            color: white;
+        }
+
+        header {
+            background: black;
+            color: gold;
+            padding: 20px;
+            text-align: center;
+            font-size: 26px;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            background: #111;
+            text-align: center;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: gold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px;
+            background: #222;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            padding: 10px;
+            border-radius: 15px;
+            width: 220px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        footer {
+            background: black;
+            color: gold;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+            background: gold;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 20px 0;
+        }
+
+        .whatsapp-button:hover {
+            background: #e6b800;
+        }
+
+    </style>
 </head>
 <body>
 
-<!-- Hero Section -->
-<div id="hero" class="hero">
-<h1>Hello, I'm <span class="name">Hiya</span></h1>
-<h2 class="typing"></h2>
-<a href="#projects" class="btn">View My Work</a>
-</div>
+<header>
+    Hiyasa Abaya Designs
+</header>
 
-<!-- Projects Section -->
-<section id="projects" class="section">
-<h2>My Projects</h2>
-<div class="projects">
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Designs</a>
+    <a href="#">Contact</a>
+</nav>
 
-<div class="project-card">
-<img src="project1.png" alt="Portfolio Screenshot">
-<h3>Portfolio Website</h3>
-<p>My personal developer portfolio.</p>
-<a href="https://github.com/yourusername/portfolio" target="_blank">View Code</a>
-</div>
-
-<div class="project-card">
-<img src="project2.png" alt="Weather App Screenshot">
-<h3>Weather App</h3>
-<p>A weather app using an API.</p>
-<a href="https://github.com/yourusername/weather-app" target="_blank">View Code</a>
-</div>
-
-<div class="project-card">
-<img src="project3.png" alt="Todo App Screenshot">
-<h3>Todo App</h3>
-<p>A task manager built with JavaScript.</p>
-<a href="https://github.com/yourusername/todo-app" target="_blank">View Code</a>
-</div>
-
-</div>
+<section class="hero">
+    <h2>Elegant Abaya Collection</h2>
+    <p>Luxury & Modern Designs ✨</p>
 </section>
 
-<footer>
-<p>© 2026 Hiya</p>
-</footer>
+<section class="gallery">
 
-<!-- Scripts -->
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script src="script.js"></script>
-<script>
-particlesJS("hero", {
-"particles": {
-"number": {"value":50,"density":{"enable":true,"value_area":800}},
-"color":{"value":"#ffffff"},
-"shape":{"type":"circle"},
-"opacity":{"value":0.5},
-"size":{"value":3},
-"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},
-"move":{"enable":true,"speed":2}
-}
-});
-</script>
+    <div class="card">
+        <img src="images/abaya1.jpg" alt="Classic Black Abaya">
+        <p>Classic Black Abaya</p>
+    </div>
+
+    <div class="card">
+        <img src="images/abaya2.jpg" alt="Beads Work Abaya">
+        <p>Beads Work Abaya</p>
+    </div>
+
+    <div class="card">
+        <img src="images/abaya3.jpg" alt="Modern Open Abaya">
+        <p>Modern Open Abaya</p>
+    </div>
+
+</section>
+
+<div style="text-align:center;">
+    <a class="whatsapp-button" href="https://wa.me/947XXXXXXXX">
+        Order on WhatsApp
+    </a>
+</div>
+
+<footer>
+    Contact: hiyasa@email.com
+</footer>
 
 </body>
 </html>
