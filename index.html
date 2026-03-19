@@ -2,7 +2,231 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Hiyasa Fashion Studio</title>
+<title>Hiyasa Fashion Shop</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    background:#0b0b0b;
+    color:white;
+}
+
+/* HEADER */
+header {
+    padding:15px;
+    background:black;
+    color:gold;
+    text-align:center;
+    font-size:22px;
+}
+
+/* GRID */
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    padding:15px;
+}
+
+.card {
+    background:#1a1a1a;
+    border-radius:12px;
+    overflow:hidden;
+    text-align:center;
+}
+
+.card img {
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.price {
+    color:gold;
+    font-weight:bold;
+}
+
+.btn {
+    background:gold;
+    color:black;
+    border:none;
+    padding:8px;
+    margin:10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+/* CART */
+.cart {
+    position:fixed;
+    top:0;
+    right:0;
+    width:300px;
+    height:100%;
+    background:#111;
+    padding:15px;
+    overflow:auto;
+    display:none;
+}
+
+.cart h2 {
+    color:gold;
+}
+
+.item {
+    border-bottom:1px solid #333;
+    padding:10px 0;
+}
+
+.total {
+    font-size:18px;
+    margin-top:10px;
+    color:gold;
+}
+
+.checkout {
+    background:green;
+    color:white;
+    padding:10px;
+    border:none;
+    width:100%;
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.open-cart {
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:gold;
+    color:black;
+    padding:12px 15px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+Hiyasa Fashion Shop 🛍️
+</header>
+
+<!-- PRODUCTS -->
+<div class="grid">
+
+    <div class="card">
+        <img src="images/abaya1.jpg">
+        <p>Classic Abaya</p>
+        <p class="price">4500 LKR</p>
+        <button class="btn" onclick="addToCart('Classic Abaya',4500)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <img src="images/abaya2.jpg">
+        <p>Beads Style</p>
+        <p class="price">6500 LKR</p>
+        <button class="btn" onclick="addToCart('Beads Style',6500)">Add to Cart</button>
+    </div>
+
+    <div class="card">
+        <img src="images/abaya3.jpg">
+        <p>Open Style</p>
+        <p class="price">5500 LKR</p>
+        <button class="btn" onclick="addToCart('Open Style',5500)">Add to Cart</button>
+    </div>
+
+</div>
+
+<!-- CART PANEL -->
+<div class="cart" id="cart">
+    <h2>Your Cart 🛒</h2>
+    <div id="cartItems"></div>
+    <p class="total">Total: LKR <span id="total">0</span></p>
+
+    <button class="checkout" onclick="checkout()">Checkout WhatsApp</button>
+    <button class="btn" onclick="closeCart()">Close</button>
+</div>
+
+<!-- CART BUTTON -->
+<div class="open-cart" onclick="openCart()">
+🛒 Cart (<span id="count">0</span>)
+</div>
+
+<script>
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function addToCart(name, price){
+    cart.push({name, price});
+    saveCart();
+    alert("Added to cart!");
+    updateCart();
+}
+
+function saveCart(){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function updateCart(){
+    let container = document.getElementById("cartItems");
+    container.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        total += item.price;
+
+        container.innerHTML += `
+        <div class="item">
+            ${item.name} - ${item.price} LKR
+            <button onclick="removeItem(${index})">❌</button>
+        </div>`;
+    });
+
+    document.getElementById("total").innerText = total;
+    document.getElementById("count").innerText = cart.length;
+}
+
+function removeItem(i){
+    cart.splice(i,1);
+    saveCart();
+    updateCart();
+}
+
+function openCart(){
+    document.getElementById("cart").style.display = "block";
+    updateCart();
+}
+
+function closeCart(){
+    document.getElementById("cart").style.display = "none";
+}
+
+function checkout(){
+    let msg = "Hello, I want to order:%0A";
+    let total = 0;
+
+    cart.forEach(i => {
+        msg += "- " + i.name + " (" + i.price + " LKR)%0A";
+        total += i.price;
+    });
+
+    msg += "%0ATotal: " + total + " LKR";
+
+    window.open("https://wa.me/94778778685?text=" + msg);
+}
+
+updateCart();
+
+</script>
+
+</body>
+</html> Studio</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- Google Font -->
