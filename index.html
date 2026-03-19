@@ -7,50 +7,45 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #0d0d0d;
+            font-family: Arial;
+            background: #0d0d0d;
             color: white;
         }
 
+        /* HEADER */
         header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             background: black;
+            padding: 15px;
+        }
+
+        header h1 {
             color: gold;
-            padding: 20px;
+            font-size: 24px;
+        }
+
+        /* SLIDER */
+        .slider {
+            width: 100%;
             text-align: center;
-            font-size: 26px;
-            letter-spacing: 2px;
+            margin-top: 10px;
         }
 
-        nav {
-            background: #111;
-            text-align: center;
-            padding: 10px;
+        .slider img {
+            width: 90%;
+            max-height: 300px;
+            border-radius: 15px;
         }
 
-        nav a {
-            color: white;
-            margin: 15px;
-            text-decoration: none;
-        }
-
-        nav a:hover {
-            color: gold;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 40px;
-            background: #222;
-        }
-
-        .gallery-scroll {
-            padding: 30px;
-        }
-
+        /* GALLERY */
         .scroll-container {
             display: flex;
             overflow-x: auto;
-            gap: 20px;
+            gap: 15px;
+            padding: 20px;
         }
 
         .card {
@@ -67,10 +62,6 @@
             cursor: pointer;
         }
 
-        .card img:hover {
-            transform: scale(1.05);
-        }
-
         .price {
             color: gold;
             font-weight: bold;
@@ -80,24 +71,13 @@
             display: inline-block;
             background: gold;
             color: black;
-            padding: 8px 15px;
+            padding: 8px 12px;
             border-radius: 5px;
             text-decoration: none;
             margin-top: 5px;
         }
 
-        .btn:hover {
-            background: #e6b800;
-        }
-
-        footer {
-            background: black;
-            color: gold;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* Popup */
+        /* POPUP */
         #popup {
             display: none;
             position: fixed;
@@ -118,10 +98,21 @@
         #popup span {
             position: absolute;
             top: 20px;
-            right: 30px;
+            right: 25px;
             font-size: 30px;
-            color: white;
             cursor: pointer;
+        }
+
+        /* WHATSAPP FLOAT */
+        .wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: green;
+            color: white;
+            padding: 12px 15px;
+            border-radius: 50px;
+            text-decoration: none;
         }
 
     </style>
@@ -129,88 +120,84 @@
 
 <body>
 
-<header style="display:flex; align-items:center; justify-content:center; gap:10px;">
-    <img src="https://via.placeholder.com/50" style="border-radius:50%;">
-    <h1 style="color:gold; font-size:26px;">Hiyasa Abaya Designs</h1>
+<!-- HEADER -->
+<header>
+    <img src="https://via.placeholder.com/40" style="border-radius:50%;">
+    <h1>Hiyasa Abaya Designs</h1>
 </header>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#">Designs</a>
-    <a href="#">Contact</a>
-</nav>
+<!-- SLIDER -->
+<div class="slider">
+    <img id="slide" src="images/abaya1.jpg">
+</div>
 
-<section class="hero">
-    <h2>Elegant Abaya Collection</h2>
-    <p>Luxury & Modern Designs ✨</p>
-</section>
-
-<section class="gallery-scroll">
+<!-- GALLERY -->
 <div class="scroll-container">
 
     <div class="card">
         <img src="images/abaya1.jpg" onclick="openPopup(this.src)">
         <p>Classic Black</p>
         <p class="price">LKR 4500</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Classic Black">Order</a>
+        <a class="btn" href="https://wa.me/947XXXXXXXX?text=I want Classic Black">Order</a>
     </div>
 
     <div class="card">
         <img src="images/abaya2.jpg" onclick="openPopup(this.src)">
         <p>Beads Work</p>
         <p class="price">LKR 6500</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Beads Work">Order</a>
+        <a class="btn" href="https://wa.me/947XXXXXXXX?text=I want Beads Work">Order</a>
     </div>
 
     <div class="card">
         <img src="images/abaya3.jpg" onclick="openPopup(this.src)">
         <p>Open Style</p>
         <p class="price">LKR 5500</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Open Style">Order</a>
+        <a class="btn" href="https://wa.me/947XXXXXXXX?text=I want Open Style">Order</a>
     </div>
 
     <div class="card">
         <img src="images/abaya4.jpg" onclick="openPopup(this.src)">
         <p>Luxury Design</p>
         <p class="price">LKR 7000</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Luxury Design">Order</a>
+        <a class="btn" href="https://wa.me/947XXXXXXXX?text=I want Luxury Design">Order</a>
     </div>
 
     <div class="card">
         <img src="images/abaya5.jpg" onclick="openPopup(this.src)">
         <p>Simple Style</p>
         <p class="price">LKR 4000</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Simple Style">Order</a>
+        <a class="btn" href="https://wa.me/947XXXXXXXX?text=I want Simple Style">Order</a>
     </div>
 
     <div class="card">
         <img src="images/abaya6.jpg" onclick="openPopup(this.src)">
         <p>Modern Cut</p>
         <p class="price">LKR 6000</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Modern Cut">Order</a>
+        <a class="btn" href="https://wa.me/947XXXXXXXX?text=I want Modern Cut">Order</a>
     </div>
 
     <div class="card">
         <img src="images/abaya7.jpg" onclick="openPopup(this.src)">
         <p>Premium Black</p>
         <p class="price">LKR 7500</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Premium Black">Order</a>
+        <a class="btn" href="https://wa.me/947XXXXXXXX?text=I want Premium Black">Order</a>
     </div>
 
 </div>
-</section>
 
-<footer>
-    Contact: fhiyasa@email.com
-</footer>
-
-<!-- Popup -->
+<!-- POPUP -->
 <div id="popup">
     <span onclick="closePopup()">&times;</span>
     <img id="popup-img">
 </div>
 
+<!-- WHATSAPP FLOAT -->
+<a class="wa" href="https://wa.me/947XXXXXXXX">WhatsApp</a>
+
+<!-- SCRIPTS -->
 <script>
+
+// IMAGE POPUP
 function openPopup(src) {
     document.getElementById("popup").style.display = "flex";
     document.getElementById("popup-img").src = src;
@@ -219,6 +206,22 @@ function openPopup(src) {
 function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
+
+// AUTO SLIDER
+let images = [
+    "images/abaya1.jpg",
+    "images/abaya2.jpg",
+    "images/abaya3.jpg",
+    "images/abaya4.jpg"
+];
+
+let i = 0;
+
+setInterval(() => {
+    i = (i + 1) % images.length;
+    document.getElementById("slide").src = images[i];
+}, 3000);
+
 </script>
 
 </body>
