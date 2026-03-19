@@ -1,228 +1,238 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hiyasa Abaya Designs</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiyasa Fashion Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial;
-            background: #0d0d0d;
-            color: white;
-        }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        /* HEADER */
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background: black;
-            padding: 15px;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0b0b0b;
+    color: white;
+}
 
-        header h1 {
-            color: gold;
-            font-size: 24px;
-        }
+/* NAVBAR */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: black;
+    position: sticky;
+    top: 0;
+}
 
-        /* SLIDER */
-        .slider {
-            width: 100%;
-            text-align: center;
-            margin-top: 10px;
-        }
+.nav h1 {
+    color: gold;
+    font-size: 20px;
+}
 
-        .slider img {
-            width: 90%;
-            max-height: 300px;
-            border-radius: 15px;
-        }
+.nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
 
-        /* GALLERY */
-        .scroll-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 15px;
-            padding: 20px;
-        }
+.nav a:hover {
+    color: gold;
+}
 
-        .card {
-            min-width: 220px;
-            background: #1a1a1a;
-            border-radius: 15px;
-            padding: 10px;
-            text-align: center;
-        }
+/* HERO */
+.hero {
+    height: 70vh;
+    background: url('images/abaya1.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
 
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-            cursor: pointer;
-        }
+.hero::after {
+    content: "";
+    position: absolute;
+    top:0;left:0;
+    width:100%;height:100%;
+    background: rgba(0,0,0,0.6);
+}
 
-        .price {
-            color: gold;
-            font-weight: bold;
-        }
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
 
-        .btn {
-            display: inline-block;
-            background: gold;
-            color: black;
-            padding: 8px 12px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 5px;
-        }
+.hero h2 {
+    font-size: 40px;
+    color: gold;
+}
 
-        /* POPUP */
-        #popup {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: black;
-            justify-content: center;
-            align-items: center;
-        }
+.hero p {
+    font-size: 18px;
+}
 
-        #popup img {
-            max-width: 90%;
-            max-height: 90%;
-        }
+/* SECTION TITLE */
+.section-title {
+    text-align: center;
+    margin: 40px 0 20px;
+    font-size: 28px;
+    color: gold;
+}
 
-        #popup span {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 30px;
-            cursor: pointer;
-        }
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
 
-        /* WHATSAPP FLOAT */
-        .wa {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: green;
-            color: white;
-            padding: 12px 15px;
-            border-radius: 50px;
-            text-decoration: none;
-        }
+.card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
 
-    </style>
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 10px;
+    text-align: center;
+}
+
+.price {
+    color: gold;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: gold;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: black;
+    color: gold;
+    margin-top: 30px;
+}
+
+/* WHATSAPP */
+.wa {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: green;
+    color: white;
+    padding: 12px 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ANIMATION */
+.card, .hero h2 {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <img src="https://via.placeholder.com/40" style="border-radius:50%;">
-    <h1>Hiyasa Abaya Designs</h1>
-</header>
-
-<!-- SLIDER -->
-<div class="slider">
-    <img id="slide" src="images/abaya1.jpg">
+<!-- NAV -->
+<div class="nav">
+    <h1>Hiyasa Fashion</h1>
+    <div>
+        <a href="#">Home</a>
+        <a href="#designs">Designs</a>
+        <a href="#contact">Contact</a>
+    </div>
 </div>
 
-<!-- GALLERY -->
-<div class="scroll-container">
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-content">
+        <h2>Luxury Abaya Collection</h2>
+        <p>Modern | Elegant | Premium Designs</p>
+    </div>
+</div>
+
+<!-- PRODUCTS -->
+<h2 class="section-title" id="designs">New Collection</h2>
+
+<div class="grid">
 
     <div class="card">
-        <img src="images/abaya1.jpg" onclick="openPopup(this.src)">
-        <p>Classic Black</p>
-        <p class="price">LKR 4500</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Classic Black">Order</a>
+        <img src="images/abaya1.jpg">
+        <div class="card-content">
+            <p>Classic Black Abaya</p>
+            <p class="price">LKR 4500</p>
+            <a class="btn" href="https://wa.me/94778778685">Order</a>
+        </div>
     </div>
 
     <div class="card">
-        <img src="images/abaya2.jpg" onclick="openPopup(this.src)">
-        <p>Beads Work</p>
-        <p class="price">LKR 6500</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Beads Work">Order</a>
+        <img src="images/abaya2.jpg">
+        <div class="card-content">
+            <p>Beads Luxury Style</p>
+            <p class="price">LKR 6500</p>
+            <a class="btn" href="https://wa.me/94778778685">Order</a>
+        </div>
     </div>
 
     <div class="card">
-        <img src="images/abaya3.jpg" onclick="openPopup(this.src)">
-        <p>Open Style</p>
-        <p class="price">LKR 5500</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Open Style">Order</a>
+        <img src="images/abaya3.jpg">
+        <div class="card-content">
+            <p>Open Front Abaya</p>
+            <p class="price">LKR 5500</p>
+            <a class="btn" href="https://wa.me/94778778685">Order</a>
+        </div>
     </div>
 
     <div class="card">
-        <img src="images/abaya4.jpg" onclick="openPopup(this.src)">
-        <p>Luxury Design</p>
-        <p class="price">LKR 7000</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Luxury Design">Order</a>
-    </div>
-
-    <div class="card">
-        <img src="images/abaya5.jpg" onclick="openPopup(this.src)">
-        <p>Simple Style</p>
-        <p class="price">LKR 4000</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Simple Style">Order</a>
-    </div>
-
-    <div class="card">
-        <img src="images/abaya6.jpg" onclick="openPopup(this.src)">
-        <p>Modern Cut</p>
-        <p class="price">LKR 6000</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Modern Cut">Order</a>
-    </div>
-
-    <div class="card">
-        <img src="images/abaya7.jpg" onclick="openPopup(this.src)">
-        <p>Premium Black</p>
-        <p class="price">LKR 7500</p>
-        <a class="btn" href="https://wa.me/94778778685?text=I want Premium Black">Order</a>
+        <img src="images/abaya4.jpg">
+        <div class="card-content">
+            <p>Premium Gold Work</p>
+            <p class="price">LKR 7500</p>
+            <a class="btn" href="https://wa.me/94778778685">Order</a>
+        </div>
     </div>
 
 </div>
 
-<!-- POPUP -->
-<div id="popup">
-    <span onclick="closePopup()">&times;</span>
-    <img id="popup-img">
-</div>
+<!-- FOOTER -->
+<footer id="contact">
+    Contact: hiyasafashion@email.com
+</footer>
 
-<!-- WHATSAPP FLOAT -->
+<!-- WHATSAPP -->
 <a class="wa" href="https://wa.me/94778778685">WhatsApp</a>
-
-<!-- SCRIPTS -->
-<script>
-
-// IMAGE POPUP
-function openPopup(src) {
-    document.getElementById("popup").style.display = "flex";
-    document.getElementById("popup-img").src = src;
-}
-
-function closePopup() {
-    document.getElementById("popup").style.display = "none";
-}
-
-// AUTO SLIDER
-let images = [
-    "images/abaya1.jpg",
-    "images/abaya2.jpg",
-    "images/abaya3.jpg",
-    "images/abaya4.jpg"
-];
-
-let i = 0;
-
-setInterval(() => {
-    i = (i + 1) % images.length;
-    document.getElementById("slide").src = images[i];
-}, 3000);
-
-</script>
 
 </body>
 </html>
