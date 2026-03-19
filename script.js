@@ -1,15 +1,12 @@
-<script>
-let images = [
-    "images/abaya1.jpg",
-    "images/abaya2.jpg",
-    "images/abaya3.jpg",
-    "images/abaya4.jpg"
-];
+.slider {
+    width: 100%;
+    padding: 10px;
+}
 
-let i = 0;
-
-setInterval(() => {
-    i = (i + 1) % images.length;
-    document.getElementById("slide").src = images[i];
-}, 3000);
-</script>
+.slider img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(255, 215, 0, 0.3);
+}
