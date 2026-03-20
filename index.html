@@ -162,9 +162,15 @@ Hiyasa Fashion Shop 🛍️
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function addToCart(name, price){
-    cart.push({name, price});
+    let item = cart.find(i => i.name === name);
+
+    if(item){
+        item.qty += 1;
+    } else {
+        cart.push({name, price, qty:1});
+    }
+
     saveCart();
-    alert("Added to cart!");
     updateCart();
 }
 
@@ -179,17 +185,33 @@ function updateCart(){
     let total = 0;
 
     cart.forEach((item, index) => {
-        total += item.price;
+        total += item.price * item.qty;
 
         container.innerHTML += `
         <div class="item">
-            ${item.name} - ${item.price} LKR
-            <button onclick="removeItem(${index})">❌</button>
+            <b>${item.name}</b><br>
+            ${item.price} LKR × ${item.qty}
+            <div>
+                <button onclick="changeQty(${index}, -1)">➖</button>
+                <button onclick="changeQty(${index}, 1)">➕</button>
+                <button onclick="removeItem(${index})">❌</button>
+            </div>
         </div>`;
     });
 
     document.getElementById("total").innerText = total;
     document.getElementById("count").innerText = cart.length;
+}
+
+function changeQty(index, change){
+    cart[index].qty += change;
+
+    if(cart[index].qty <= 0){
+        cart.splice(index,1);
+    }
+
+    saveCart();
+    updateCart();
 }
 
 function removeItem(i){
@@ -212,13 +234,13 @@ function checkout(){
     let total = 0;
 
     cart.forEach(i => {
-        msg += "- " + i.name + " (" + i.price + " LKR)%0A";
-        total += i.price;
+        msg += "- " + i.name + " x" + i.qty + " (" + (i.price*i.qty) + " LKR)%0A";
+        total += i.price * i.qty;
     });
 
     msg += "%0ATotal: " + total + " LKR";
 
-    window.open("https://wa.me/94778778685?text=" + msg);
+    window.open("https://wa.me/947XXXXXXXX?text=" + msg);
 }
 
 updateCart();
