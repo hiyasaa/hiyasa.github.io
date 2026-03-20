@@ -1,11 +1,11 @@
-.slider {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
+.item button {
+    margin: 3px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.slider img {
-    width: 90%;
-    max-height: 300px;
-    border-radius: 15px;
+.item button:hover {
+    background: gold;
 }
