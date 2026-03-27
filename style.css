@@ -13,3 +13,11 @@ select {
 .item button:hover {
     background: gold;
 }
+.card:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.checkout:hover {
+    background: darkgreen;
+}
