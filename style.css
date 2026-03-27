@@ -1,4 +1,8 @@
-.item button {
+
+select {
+    border-radius: 5px;
+    border: none;
+}.item button {
     margin: 3px;
     padding: 5px 8px;
     border: none;
