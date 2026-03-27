@@ -270,23 +270,29 @@ alert("Fill all details!");
 return;
 }
 
-let msg="🛍️ New Order:%0A";
-msg+="Name: "+name+"%0A";
-msg+="Phone: "+phone+"%0A";
-msg+="Address: "+address+"%0A";
-msg+="Payment: "+payment+"%0A%0A";
+let msg="🛍️ *NEW ORDER* %0A";
+msg+="👤 Name: "+name+"%0A";
+msg+="📞 Phone: "+phone+"%0A";
+msg+="📍 Address: "+address+"%0A";
+msg+="💳 Payment: "+payment+"%0A%0A";
 
 let total=0;
 
 cart.forEach(i=>{
-msg+="- "+i.name+" x"+i.qty+" ("+(i.price*i.qty)+" LKR)%0A";
+msg+="• "+i.name+" x"+i.qty+" = "+(i.price*i.qty)+" LKR%0A";
 total+=i.price*i.qty;
 });
 
-msg+="%0ATotal: "+total+" LKR";
+msg+="%0A💰 Total: "+total+" LKR";
 
-window.open("https://wa.me/94778778685?text="+msg);
+window.open("https://wa.me/947XXXXXXXX?text="+msg);
 
+// CLEAR CART AFTER ORDER
+cart = [];
+saveCart();
+updateCart();
+
+alert("Order placed successfully!");
 }
 
 updateCart();
